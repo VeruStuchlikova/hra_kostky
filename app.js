@@ -1,21 +1,39 @@
 // Základní proměnné
-let totalScore, roundScore, activePlayer, dice;
+let totalScore, roundScore, activePlayer, dice, playGame;
 
-totalScore = [0,0];
-roundScore = 0;
-activePlayer = 0;
+
 
 //Vynulovat skóre a skrýt kostku
-document.getElementById("total_score_player0").textContent = 0;
-document.getElementById("total_score_player1").textContent = 0;
-document.getElementById("current_score0").textContent = 0;
-document.getElementById("current_score1").textContent = 0;
-document.querySelector(".dice_img").style.display = "none";
 
+newStart();
+
+function newStart() {
+    totalScore = [0,0];
+    roundScore = 0;
+    activePlayer = 0;
+    playGame = true;
+
+    document.getElementById("total_score_player0").textContent = 0;
+    document.getElementById("total_score_player1").textContent = 0;
+    document.getElementById("current_score0").textContent = 0;
+    document.getElementById("current_score1").textContent = 0;
+
+    document.querySelector(".dice_img").style.display = "none";
+
+    document.querySelector("#name_0").textContent = "Skóre 1. hráče";
+    document.querySelector("#name_1").textContent = "Skóre 2. hráče";
+
+    // vrátíme zvýraznění aktivního hráče k prvnímu a u druhého odstraníme
+    document.querySelector(".total_score0").classList.add("active");
+    document.querySelector(".total_score1").classList.remove("active");
+}
+
+    
 
     // Po kliku na "Hodit kostkou" se objeví náhodná kostka
     document.querySelector(".rollDice").addEventListener('click', function() {
-    // generace náhodného čísla 1-6
+        if(playGame){
+            // generace náhodného čísla 1-6
     let dice = Math.ceil(Math.random()*6);
     // Zobrazení správného obrázku
     let diceElement = document.querySelector(".dice_img");
@@ -25,14 +43,14 @@ document.querySelector(".dice_img").style.display = "none";
     // Načítání "současného skóre"(roundScore)
     if (dice !== 1) {
         roundScore = roundScore + dice;
-        document.getElementById("current_score0").textContent = roundScore;
+        document.getElementById("current_score" + activePlayer).textContent = roundScore;
     } else {
        // bude hrát další hráč
        nextPlayer();
-      
-
     
     }
+  }
+    
 
 });
 
@@ -56,16 +74,23 @@ function nextPlayer() {
 }
 
     document.querySelector(".hold_score").addEventListener("click", function() {
-        // Celkové skóre se sečte a vyplní se současným skóre
+        if(playGame) {
+               // Celkové skóre se sečte a vyplní se současným skóre
         totalScore[activePlayer] = totalScore[activePlayer] + roundScore;
 
-        //
+       
         document.querySelector("#total_score_player" + activePlayer).textContent = 
         totalScore[activePlayer];
 
         if (totalScore[activePlayer] >= 20) {
             document.querySelector("#name_" + activePlayer).textContent = "Jsi vítěz!!!"
+            document.querySelector(".dice_img").style.display = "none";
+            playGame = false;
         } else {
             nextPlayer()
         }
+        }
+     
     });
+
+    document.querySelector(".newGame").addEventListener("click", newStart)
