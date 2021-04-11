@@ -113,3 +113,12 @@ body {
     color: black;
     cursor: pointer;
 }
+
+
+/* Dice */ 
+
+.dice {
+    position: absolute;
+    top: 25%;
+    left: 43.5%;
+}
