@@ -3,3 +3,19 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* All page and playground */
+
+body {
+    background-image: linear-gradient(120deg, black, white);
+    height: 100vh;
+}
+
+.playground {
+    width: 80%;
+    height: 80%;
+    background: rgba(194, 11, 240, 0.281);
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
