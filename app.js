@@ -54,3 +54,18 @@ function nextPlayer() {
     document.querySelector(".total_score0").classList.toggle("active");
     document.querySelector(".total_score1").classList.toggle("active");
 }
+
+    document.querySelector(".hold_score").addEventListener("click", function() {
+        // Celkové skóre se sečte a vyplní se současným skóre
+        totalScore[activePlayer] = totalScore[activePlayer] + roundScore;
+
+        //
+        document.querySelector("#total_score_player" + activePlayer).textContent = 
+        totalScore[activePlayer];
+
+        if (totalScore[activePlayer] >= 20) {
+            document.querySelector("#name_" + activePlayer).textContent = "Jsi vítěz!!!"
+        } else {
+            nextPlayer()
+        }
+    });
