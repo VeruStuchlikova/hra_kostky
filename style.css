@@ -27,10 +27,15 @@ body {
     color: black;
     font-weight: 700;
     font-family: Arial, Helvetica, sans-serif;
-    border: 3px solid black;
-    border-radius: 15px;
+    cursor: pointer;
  
 }
+
+.total_score:hover {
+    border: 3px solid black;
+    border-radius: 15px;
+}
+
 .total_score p:nth-of-type(2) {
     font-size: 40px;
     text-align: center;
@@ -47,5 +52,37 @@ body {
     top: 15%;
     right: 10%;
 }
-   
+
+
+/* Current score */
+
+.current_score {
+    width: 150px;
+    height: 150px;
+    background: rgba(70, 67, 67, 0.349);
+    border-radius: 20px;
+}
   
+.current_score p {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 1.5rem;
+}
+
+.current_score p:nth-child(2) {
+    font-size: 40px;
+}
+
+.current_score0 {
+    position: absolute;
+    top: 40%;
+    left: 12%;
+}
+
+.current_score1 {
+    position: absolute;
+    top: 40%;
+    right: 12%;
+}
