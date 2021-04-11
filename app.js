@@ -28,8 +28,29 @@ document.querySelector(".dice_img").style.display = "none";
         document.getElementById("current_score0").textContent = roundScore;
     } else {
        // bude hrát další hráč
+       nextPlayer();
+      
+
+    
     }
-   
 
 });
 
+function nextPlayer() {
+    if(activePlayer === 0) {
+        activePlayer = 1
+    } else {
+        activePlayer = 0;
+    }
+
+    roundScore = 0;
+
+    document.getElementById("current_score0").textContent = 0;
+    document.getElementById("current_score1").textContent = 0;
+    document.querySelector(".dice_img").style.display = "none";
+
+    //přepnutí active players pomocí (přepínače) toggle (má v sobe remove i add
+    // říká ,,Pokud má v sobě activ, seber ho, pokud nemá, tak ho přidej)
+    document.querySelector(".total_score0").classList.toggle("active");
+    document.querySelector(".total_score1").classList.toggle("active");
+}

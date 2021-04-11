@@ -32,10 +32,7 @@ body {
  
 }
 
-.total_score:hover {
-    border: 3px solid black;
-    border-radius: 15px;
-}
+
 
 .total_score p:nth-of-type(2) {
     font-size: 40px;
@@ -44,13 +41,13 @@ body {
 
 .total_score0 {
     position: absolute;
-    top: 15%;
+    top: 11%;
     left: 10%;
 }
 
 .total_score1 {
     position: absolute;
-    top: 15%;
+    top: 11%;
     right: 10%;
 }
 
@@ -78,22 +75,22 @@ body {
 
 .current_score0 {
     position: absolute;
-    top: 40%;
-    left: 12%;
+    top: 45%;
+    left: 13%;
 }
 
 .current_score1 {
     position: absolute;
-    top: 40%;
-    right: 12%;
+    top: 45%;
+    right: 13%;
 }
 
 /* Middle buttons */
 
 .middle_text {
     position: absolute;
-    top: 50%;
-    left: 40%;
+    top: 40%;
+    left: 42%;
     text-align: center;
     
 }
@@ -116,9 +113,17 @@ body {
 
 
 /* Dice */ 
-
 .dice {
     position: absolute;
-    top: 25%;
-    left: 43.5%;
+    top: 20%;
+    left: 45.5%;
+}
+
+/* Active player */ 
+.active {
+    color: #fff;
+    border: 2px solid grey;
+    background-color: rgba(170, 248, 248, 0.568);
+    border-radius: 5px;
+    padding: 3px;
 }
