@@ -94,6 +94,9 @@ body {
     text-align: center;
     
 }
+.middle_text:hover {
+    cursor: pointer;
+}
 
 .btn {
     background-color:  rgba(228, 246, 247, 0.315);
